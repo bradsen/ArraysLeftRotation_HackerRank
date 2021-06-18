@@ -1,0 +1,21 @@
+
+def rotLeft(a, d):
+    
+    length = len(a)      #size of the array, 5 
+    new = [0 for x in a] #Set 5 0s into array new, [0,0,0,0,0]
+    for i in range(length):
+        o = i-d          # -3 = 0-3
+        new[o]=str(a[i]) #new[-3] = str(a[0]), 1, [0,0,1,0,0]
+    result = " ".join(new)
+    return result
+
+
+def main():
+    
+    arr = [1,2,3,4,5]
+    d = 3
+    print(rotLeft(arr, d))
+
+
+if __name__ == "__main__":
+    main()
