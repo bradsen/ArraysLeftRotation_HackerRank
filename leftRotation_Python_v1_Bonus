@@ -1,0 +1,20 @@
+
+def rotRight(a, d):
+    
+    length = len(a)
+    new = [0 for x in a]
+    for i in range(length):
+        o = d+i-len(a)
+        new[o]=str(a[i])
+    print(" ".join(new))
+
+def main():
+    
+    arr = [1,2,3,4,5]
+    d = 3
+   
+    rotRight(arr, d)
+
+
+if __name__ == "__main__":
+    main()
