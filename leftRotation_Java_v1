@@ -1,0 +1,47 @@
+
+import java.util.*;
+//Brute force method
+
+class leftRotation_v1 {  
+
+    public static List<Integer> rotLeft(List<Integer> a, int d){
+
+        for(int i = 0; i < d; i++){  
+            int j, first;  
+            //Stores the first element of the array  
+            first = a.get(0);  
+            for(j = 0; j < a.size()-1; j++){  
+                //Shift element of array by one  
+                a.set(j, a.get(j+1));  //a.set(0, a.get(1), 2)
+            }  
+            //First element of array will be added to the end  
+            a.set(j, first);  // j = 4, first = 1
+        }  
+
+        return a;
+
+    }
+    public static void main(String[] args) {  
+        
+        int d = 3;
+        List<Integer> a = new ArrayList<Integer>(List.of(1,2,3,4,5));
+
+        System.out.println("Left Rotation: " + d);  
+       
+
+        //Displays the results of the array before rotation  
+        System.out.println("Array before left rotation: ");  
+        for(int i = 0; i< a.size(); i++){  
+            System.out.print(a.get(i) + " ");  
+        }  
+
+        rotLeft(a, d);
+        System.out.println();    
+
+        //Displays the results of the array after rotation  
+        System.out.println("Array after left rotation: ");  
+        for(int i = 0; i< a.size(); i++){  
+            System.out.print(a.get(i) + " ");  
+        }  
+    }  
+}  
