@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+class leftRotation_v2{
+
+    public static int[] rotLeft(int[] a, int d){
+
+        int rotPoint = d; // The rotPoint is set to 2
+
+        int[] outputArray = new int[a.length]; // outputArray size is set to 5
+
+        int i = 0;
+
+        //This is the first part 
+        while(rotPoint<a.length){
+            outputArray[i]= a[rotPoint]; // Meaning outputArray[0] = a[2], (3) 
+            i++;                         // Meaning outputArray[1] = a[3], (4) 
+            rotPoint++;                  // Meaning outputArray[2] = a[4], (5) 
+        }
+        //This is the second part
+        rotPoint = 0;
+        while(rotPoint < d){              // d = 2, 0 < 2 
+            outputArray[i] = a[rotPoint]; //Meaning outputArray[4] = a[0], (1) 
+            i++;			                    //Meaning outputArray[5] = a[1], (2)
+            rotPoint++;
+        }
+
+        return outputArray;
+
+    }
+    public static void main(String[] args){
+
+        int[] a = new int[] {1,2,3,4,5};
+        int d = 2;
+       
+        int[] result = rotLeft(a, d);
+       
+        System.out.println("Left rotation is: "+ d);
+        System.out.println("Array before left rotation is: ");
+        for(int arrayElement : a){
+            System.out.print(arrayElement + " ");
+        }
+
+        System.out.println();
+
+        System.out.println("Array after left rotation is: ");
+        for(int arrayElement : result){
+            System.out.print(arrayElement + " ");
+        }
+    }
+}
