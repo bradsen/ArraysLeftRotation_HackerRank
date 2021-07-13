@@ -1,0 +1,45 @@
+import java.util.*;
+
+class leftRotation_v3 {  
+
+    public static List<Integer> rotLeft(List<Integer> a, int d){
+        int size = a.size(); //Size is set to 5 because there are 5 elements in the array a 
+
+        List<Integer> outputArray  = new ArrayList<Integer>(); //Create a new array lsit 
+        while(outputArray.size() < size) outputArray.add(0); //Initliase rotated_arr with 0s 
+
+        // i+d%a.size() = (0 + 2) % 5, 2/5 = 2
+        // outputArray.set(0, 1);  
+        for(int i = 0; i < a.size(); i++){
+            outputArray.set(i, a.get((i+d)% a.size()));  
+        }
+
+        return outputArray;
+
+    }
+    public static void main(String[] args) {  
+        
+
+        List<Integer> a = new ArrayList<Integer>(List.of(1,2,3,4,5));
+        List<Integer> result = new ArrayList<Integer>();
+
+        int d = 2;
+
+        System.out.println("Left rotation is: "+ d);  
+        
+        //Displays resulting array before rotation  
+        System.out.println("Array before left rotation: ");  
+        for(int i = 0; i< a.size(); i++){  
+            System.out.print(a.get(i) + " ");  
+        }  
+
+        System.out.println();  
+        //Displays resulting array after rotation  
+        
+        result = rotLeft(a, d);
+        System.out.println("Array after left rotation: ");  
+        for(int i = 0; i< result.size(); i++){  
+            System.out.print(result.get(i) + " ");  
+        }  
+    }  
+}  
