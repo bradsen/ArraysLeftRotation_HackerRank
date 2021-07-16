@@ -1,0 +1,52 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+// To avoid copying values in vector, we can change values in vector by reference 
+void rotate(vector<int> &vec, int d)
+{
+   
+	// if d equals 0, nothing should be done
+	if (d == 0)
+		return;
+
+        //This function will run 3 times because there are 3 left rotations
+	for (int i = 0; i < d; i++)
+	{
+		// adding first element at the end of vector
+		vec.push_back(vec[0]);
+	
+		// removing the first element
+		vec.erase(vec.begin());
+	}
+}
+
+
+// main driver code
+int main()
+{
+    vector<int> vec = { 1, 2, 3, 4, 5 };
+    int size = vec.size(); //size is 5
+    int d = 3;
+
+    cout << "Left rotation is: " << d << endl;
+    cout << "Array before left rotation is:  ";
+    
+    for(int i=0; i<vec.size(); i++){
+        cout << vec[i] << " ";
+    }
+
+    // Call the function
+	rotate(vec, d % size);
+
+    cout << endl;
+
+    cout << "Array after left rotation is:  ";
+    for(int i=0; i<vec.size(); i++){
+        cout << vec[i] << " ";
+    }
+
+	return 0;
+}
