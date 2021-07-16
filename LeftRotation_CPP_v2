@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+vector <int> rotLeft(vector<int>a, int d){
+    vector<int>result; // create a new vector result 
+
+    //(i+d)%a.size() = (0+2)%5 = 2/5 = 2
+    //result.push_back(a[2])
+    for(int i=0; i<a.size(); i++){
+        result.push_back(a[(i+d)%a.size()]); 
+    }
+    
+    return result;
+}
+
+
+int main()
+{
+    vector<int> vec = { 1, 2, 3, 4, 5 };
+    int n = vec.size(); //5
+    int d = 6;
+
+    cout << "Left rotation is: " << d << endl;
+    cout << "Array before left rotation" << endl;
+
+    for(int i=0; i<vec.size(); i++){
+        cout << vec[i] << " ";
+    }
+
+    cout << endl;
+
+    //Store the result in vector result 
+    vector<int> result = rotLeft(vec, d%n);
+
+    cout << "Array after left rotation" << endl;
+    for(int i=0; i<result.size(); i++){
+        cout << result[i] << " ";
+    }
+
+	return 0;
+}
